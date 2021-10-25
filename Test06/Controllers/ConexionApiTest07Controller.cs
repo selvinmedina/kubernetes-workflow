@@ -23,12 +23,19 @@ namespace Test06.Controllers
             _restClient.BaseUrl = new Uri(test07Api);
         }
 
+        [HttpGet("Saludar")]
+        public IActionResult Saludar()
+        {
+            return Ok("Hola desde Test 06");
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> ObtenerSaludo()
         {
             try
             {
-                var request = new RestRequest("ObtenerSaludoDesdeOtraApi", Method.GET);
+                var request = new RestRequest("ObtenerSaludoDesdeOtraApi/Saludar", Method.GET);
 
                 var respuesta = await _restClient.ExecuteGetAsync(request);
 

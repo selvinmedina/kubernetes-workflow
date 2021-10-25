@@ -18,9 +18,15 @@ namespace Test07.Controllers
         {
             _restClient = new RestClient();
 
-            var test07Api = configuration["api:Test07"];
+            var test06Api = configuration["api:Test06"];
 
-            _restClient.BaseUrl = new Uri(test07Api);
+            _restClient.BaseUrl = new Uri(test06Api);
+        }
+
+        [HttpGet("Saludar")]
+        public IActionResult Saludar()
+        {
+            return Ok("Hola desde Test 07");
         }
 
         [HttpGet]
@@ -28,7 +34,7 @@ namespace Test07.Controllers
         {
             try
             {
-                var request = new RestRequest("ObtenerSaludoDesdeOtraApi", Method.GET);
+                var request = new RestRequest("ObtenerSaludoDesdeOtraApi/Saludar", Method.GET);
 
                 var respuesta = await _restClient.ExecuteGetAsync(request);
 
