@@ -1,0 +1,22 @@
+﻿apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: teset06-app
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /v1
+        pathType: Prefix
+        backend:
+          service:
+            name: test-06-v1
+            port:
+              number: 8080
+      - path: /v2
+        pathType: Prefix
+        backend:
+          service:
+            name: test-06-v2
+            port:
+              number: 8080
