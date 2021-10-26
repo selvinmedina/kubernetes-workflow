@@ -1,0 +1,28 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test07-api
+  namespace: capacitaciones
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: corporativo-it-test07-api
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: corporativo-it-test07-api
+    spec:
+      containers:
+      - image: docker-registry.grupofarsiman.com/corporativo/it/test07-api:#{Build.BuildId}#
+        imagePullPolicy: Always
+        name: test07-api
+      imagePullSecrets:
+      - name: grupofarsiman-registry
+      restartPolicy: Always
+

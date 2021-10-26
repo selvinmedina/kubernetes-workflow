@@ -1,8 +1,6 @@
 FROM mcr.microsoft.com/dotnet/aspnet:3.1-focal AS base
 WORKDIR /app
-EXPOSE 9090
 EXPOSE 80
-EXPOSE 9987
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
 WORKDIR /src

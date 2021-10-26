@@ -1,0 +1,20 @@
+﻿apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: test07-api-ingress
+  namespace: capacitaciones
+spec:
+  entryPoints:
+  - websecure
+  #- websecurepublic
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`apps.k8s-dev.grupofarsiman.io`) && PathPrefix(`/corporatio/it/test07-api`)
+    middlewares:
+    - name: test07-api-ingress-path-strip
+    services:
+    - name: corporativo-it-test07-api-svc
+      port: 80
+  tls:
+    secretName: tls-k8s-grupofarsiman-io
