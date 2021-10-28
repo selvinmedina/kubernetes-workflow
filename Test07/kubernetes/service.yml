@@ -1,7 +1,7 @@
 ﻿apiVersion: v1
 kind: Service
 metadata:
-  name: corporativo-ti-test07-api-svc
+  name: corporativo-it-test07-api-svc
   namespace: capacitaciones
 spec:
   selector:
