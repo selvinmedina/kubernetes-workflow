@@ -10,7 +10,7 @@ spec:
   - web
   routes:
   - kind: Rule
-    match: Host(`apps.k8s-dev.grupofarsiman.io`) && PathPrefix(`/corporatio/it/test07-api`)
+    match: Host(`apps.k8s-dev.grupofarsiman.io`) && PathPrefix(`/corporativo/it/test07-api`)
     middlewares:
     - name: test07-api-ingress-path-strip
     services:
