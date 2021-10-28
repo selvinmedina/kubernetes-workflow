@@ -5,7 +5,7 @@ metadata:
   namespace: capacitaciones
 spec:
   selector:
-    app: corporativo-ti-test07-api
+    app: corporativo-it-test07-api
   ports:
     - protocol: TCP
       port: 80
