@@ -1,0 +1,12 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: corporativo-it-test06-api-svc
+  namespace: capacitaciones
+spec:
+  selector:
+    app: corporativo-it-test06-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

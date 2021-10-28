@@ -2,15 +2,15 @@
 kind: Deployment
 env:
     normal: 
-        FS_URL_API_TEST06: https://apps.k8s-dev.grupofarsiman.io/corporativo/it/test06-api
+        FS_URL_API_TEST07: https://apps.k8s-dev.grupofarsiman.io/corporativo/it/test07-api
 metadata:
-  name: test07-api
+  name: test06-api
   namespace: capacitaciones
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: corporativo-it-test07-api
+      app: corporativo-it-test06-api
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -19,12 +19,14 @@ spec:
   template:
     metadata:
       labels:
-        app: corporativo-it-test07-api
+        app: corporativo-it-test06-api
     spec:
       containers:
-      - image: docker-registry.grupofarsiman.com/corporativo/it/test07-api:#{Build.BuildId}#
+      - image: docker-registry.grupofarsiman.com/corporativo/it/test06-api:#{Build.BuildId}#
         imagePullPolicy: Always
-        name: test07-api
+        name: test06-api
+    - env: 
+
       imagePullSecrets:
       - name: grupofarsiman-registry
       restartPolicy: Always

@@ -24,8 +24,9 @@
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "": "https://apps.k8s-dev.grupofarsiman.io/corporativo/it/test06-api"
       }
-    }
+    }FS_URL_API_TEST06
   }
 }

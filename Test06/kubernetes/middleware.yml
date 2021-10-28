@@ -1,0 +1,10 @@
+﻿apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: test06-api-ingress-path-strip
+  namespace: capacitaciones
+spec:
+  stripPrefix:
+    forceSlash: false
+    prefixes:
+    - /corporativo/it/test06-api

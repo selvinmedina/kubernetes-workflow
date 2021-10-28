@@ -1,22 +1,20 @@
-﻿apiVersion: networking.k8s.io/v1
-kind: Ingress
+﻿apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
-  name: teset06-app
+  name: test06-api-ingress
+  namespace: capacitaciones
 spec:
-  rules:
-  - http:
-      paths:
-      - path: /v1
-        pathType: Prefix
-        backend:
-          service:
-            name: test-06-v1
-            port:
-              number: 8080
-      - path: /v2
-        pathType: Prefix
-        backend:
-          service:
-            name: test-06-v2
-            port:
-              number: 8080
+  entryPoints:
+  - websecure
+  #- websecurepublic
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`apps.k8s-dev.grupofarsiman.io`) && PathPrefix(`/corporativo/it/test06-api`)
+    middlewares:
+    - name: test06-api-ingress-path-strip
+    services:
+    - name: corporativo-it-test06-api-svc
+      port: 80
+  tls:
+    secretName: tls-k8s-grupofarsiman-io
