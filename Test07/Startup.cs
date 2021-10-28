@@ -19,6 +19,13 @@ namespace Test07
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsAllowAnyOrigin",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -37,8 +44,7 @@ namespace Test07
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Test07 v1"));
             }
 
-            app.UseHttpsRedirection();
-
+            app.UseCors("CorsAllowAnyOrigin");
             app.UseRouting();
 
             app.UseAuthorization();

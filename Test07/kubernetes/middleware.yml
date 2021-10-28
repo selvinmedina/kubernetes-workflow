@@ -7,4 +7,4 @@ spec:
   stripPrefix:
     forceSlash: false
     prefixes:
-    - /corporativo/it/facturacion-api
+    - /corporativo/it/test07-api

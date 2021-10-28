@@ -35,14 +35,16 @@ namespace Test06.Controllers
         {
             try
             {
+                Console.WriteLine($"Obteniendo Saludo: {_restClient.BaseUrl}ObtenerSaludoDesdeOtraApi/Saludar");
                 var request = new RestRequest("ObtenerSaludoDesdeOtraApi/Saludar", Method.GET);
-
+                //Console.WriteLine(JsonConvert.SerializeObject(request));
                 var respuesta = await _restClient.ExecuteGetAsync(request);
-
+                Console.WriteLine(respuesta.StatusCode);
                 return Ok(respuesta.Content);
             }
             catch (Exception ex)
             {
+                Console.WriteLine(JsonConvert.SerializeObject(ex));
                 return StatusCode((int)HttpStatusCode.InternalServerError, JsonConvert.SerializeObject(ex));
             }
         }
