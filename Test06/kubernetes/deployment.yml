@@ -1,8 +1,5 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
-env:
-    normal: 
-        FS_URL_API_TEST07: https://apps.k8s-dev.grupofarsiman.io/corporativo/it/test07-api
 metadata:
   name: test06-api
   namespace: capacitaciones
@@ -25,6 +22,9 @@ spec:
       - image: docker-registry.grupofarsiman.com/corporativo/it/test06-api:#{Build.BuildId}#
         imagePullPolicy: Always
         name: test06-api
+        env:
+            normal: 
+                FS_URL_API_TEST07: https://apps.k8s-dev.grupofarsiman.io/corporativo/it/test07-api
       imagePullSecrets:
       - name: grupofarsiman-registry
       restartPolicy: Always
