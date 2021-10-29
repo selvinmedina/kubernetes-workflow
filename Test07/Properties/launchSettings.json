@@ -14,7 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "FS_URL_API_TEST06": "http://localhost:4432"
       }
     },
     "Test07": {
@@ -25,8 +26,8 @@
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "": "https://apps.k8s-dev.grupofarsiman.io/corporativo/it/test06-api"
+        "FS_URL_API_TEST06": "http://localhost:4432"
       }
-    }FS_URL_API_TEST06
+    }
   }
 }

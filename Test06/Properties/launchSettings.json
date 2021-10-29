@@ -14,7 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "FS_URL_API_TEST07": "http://localhost:44345"
       }
     },
     "Test06": {
@@ -24,7 +25,7 @@
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "FS_URL_API_TEST07": "https://apps.k8s-dev.grupofarsiman.io/corporativo/it/test07-api"
+        "FS_URL_API_TEST07": "http://localhost:44345"
       }
     }
   }

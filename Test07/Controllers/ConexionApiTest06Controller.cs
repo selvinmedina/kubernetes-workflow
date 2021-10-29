@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Farsiman.Extensions.Configuration;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Test07.Controllers
 {
@@ -18,7 +20,25 @@ namespace Test07.Controllers
         {
             _restClient = new RestClient();
 
-            var test06Api = configuration["api:Test06"];
+            var test06Api = configuration.GetFromENV("Api:Test06");
+
+            var variables = Environment.GetEnvironmentVariables();
+
+            foreach (string key in variables.Keys)
+            {
+                Console.WriteLine(key);
+                if (!key.StartsWith("FS_"))
+                {
+                    continue;
+                }
+
+                Console.WriteLine();
+                Console.WriteLine(key);
+
+                Console.WriteLine(variables[key].ToString());
+            }
+
+            Console.WriteLine($"Api: {test06Api}");
 
             _restClient.BaseUrl = new Uri(test06Api);
         }
