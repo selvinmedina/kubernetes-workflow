@@ -5,7 +5,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
 
 WORKDIR /src
-COPY ["nuget.config", ""]
+COPY ["nuget.config", "./"]
 COPY ["Test06.csproj", "./"]
 RUN dotnet restore "Test06.csproj"
 COPY . .
