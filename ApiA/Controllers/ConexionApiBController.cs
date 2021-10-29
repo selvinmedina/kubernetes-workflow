@@ -6,21 +6,20 @@ using RestSharp;
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using System.Linq;
 
-namespace Test07.Controllers
+namespace Test06.Controllers
 {
     [ApiController]
     [Route("ObtenerSaludoDesdeOtraApi")]
-    public class ConexionApiTest06Controller : ControllerBase
+    public class ConexionApiBController : ControllerBase
     {
         private readonly RestClient _restClient;
 
-        public ConexionApiTest06Controller(IConfiguration configuration)
+        public ConexionApiBController(IConfiguration configuration)
         {
             _restClient = new RestClient();
 
-            var test06Api = configuration.GetFromENV("Api:Test06");
+            var test07Api = configuration.GetFromENV("Api:B");
 
             var variables = Environment.GetEnvironmentVariables();
 
@@ -38,16 +37,17 @@ namespace Test07.Controllers
                 Console.WriteLine(variables[key].ToString());
             }
 
-            Console.WriteLine($"Api: {test06Api}");
+            Console.WriteLine($"Api: {test07Api}");
 
-            _restClient.BaseUrl = new Uri(test06Api);
+            _restClient.BaseUrl = new Uri(test07Api);
         }
 
         [HttpGet("Saludar")]
         public IActionResult Saludar()
         {
-            return Ok("Hola desde Test 07");
+            return Ok("Hola desde Api A");
         }
+
 
         [HttpGet]
         public async Task<IActionResult> ObtenerSaludo()
@@ -55,14 +55,17 @@ namespace Test07.Controllers
             try
             {
                 Console.WriteLine($"Obteniendo Saludo: {_restClient.BaseUrl}ObtenerSaludoDesdeOtraApi/Saludar");
+                
                 var request = new RestRequest("ObtenerSaludoDesdeOtraApi/Saludar", Method.GET);
-                //Console.WriteLine(JsonConvert.SerializeObject(request));
                 var respuesta = await _restClient.ExecuteGetAsync(request);
+                
                 Console.WriteLine(respuesta.StatusCode);
+                
                 return Ok(respuesta.Content);
             }
             catch (Exception ex)
             {
+                Console.WriteLine(JsonConvert.SerializeObject(ex));
                 return StatusCode((int)HttpStatusCode.InternalServerError, JsonConvert.SerializeObject(ex));
             }
         }

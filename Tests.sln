@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test06", "Test06\Test06.csproj", "{E9103C38-5B37-4B01-AA6E-9B35EDC4788E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiA", "ApiA\ApiA.csproj", "{E9103C38-5B37-4B01-AA6E-9B35EDC4788E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test07", "Test07\Test07.csproj", "{4480D6D0-BB39-4511-8A64-D5886258D420}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiB", "ApiB\ApiB.csproj", "{4480D6D0-BB39-4511-8A64-D5886258D420}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

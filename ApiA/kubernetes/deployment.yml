@@ -1,13 +1,13 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test06-api
+  name: api-a-selvin
   namespace: capacitaciones
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: corporativo-it-test06-api
+      app: corporativo-it-api-a-selvin
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -16,15 +16,15 @@ spec:
   template:
     metadata:
       labels:
-        app: corporativo-it-test06-api
+        app: corporativo-it-api-a-selvin
     spec:
       containers:
-        - image: docker-registry.grupofarsiman.com/corporativo/it/test06-api:#{Build.BuildId}#
+        - image: docker-registry.grupofarsiman.com/corporativo/it/api-a-selvin:#{Build.BuildId}#
           imagePullPolicy: Always
-          name: test06-api
+          name: api-a-selvin
           env:
-            - name: FS_URL_API_TEST07
-              value: https://apps.k8s-dev.grupofarsiman.io/corporativo/it/test07-api
+            - name: FS_URL_API_B
+              value: https://apps.k8s-dev.grupofarsiman.io/corporativo/it/api-b-selvin
       imagePullSecrets:
         - name: grupofarsiman-registry
       restartPolicy: Always

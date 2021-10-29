@@ -1,7 +1,7 @@
 ﻿apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: test07-api-ingress
+  name: api-a-selvin-ingress
   namespace: capacitaciones
 spec:
   entryPoints:
@@ -10,11 +10,11 @@ spec:
   - web
   routes:
   - kind: Rule
-    match: Host(`apps.k8s-dev.grupofarsiman.io`) && PathPrefix(`/corporativo/it/test07-api`)
+    match: Host(`apps.k8s-dev.grupofarsiman.io`) && PathPrefix(`/corporativo/it/api-a-selvin`)
     middlewares:
-    - name: test07-api-ingress-path-strip
+    - name: api-a-selvin-ingress-path-strip
     services:
-    - name: corporativo-it-test07-api-svc
+    - name: corporativo-it-api-a-selvin-svc
       port: 80
   tls:
     secretName: tls-k8s-grupofarsiman-io

@@ -1,11 +1,11 @@
 ﻿apiVersion: v1
 kind: Service
 metadata:
-  name: corporativo-it-test07-api-svc
+  name: corporativo-it-api-b-selvin-svc
   namespace: capacitaciones
 spec:
   selector:
-    app: corporativo-it-test07-api
+    app: corporativo-it-api-b-selvin
   ports:
     - protocol: TCP
       port: 80
