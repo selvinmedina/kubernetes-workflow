@@ -7,8 +7,6 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 
 WORKDIR /src
 COPY ["nuget.config", ""]
-
-WORKDIR /src
 COPY ["Test07.csproj", "./"]
 RUN dotnet restore "Test07.csproj"
 COPY . .
