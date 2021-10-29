@@ -25,8 +25,6 @@ spec:
       - image: docker-registry.grupofarsiman.com/corporativo/it/test06-api:#{Build.BuildId}#
         imagePullPolicy: Always
         name: test06-api
-    - env: 
-
       imagePullSecrets:
       - name: grupofarsiman-registry
       restartPolicy: Always
